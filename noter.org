@@ -82,3 +82,75 @@ A workflow notation consisting of:
 - State represented as a marking consisting of executed, pending and included
 
 [[dcrgraphs.net]] 
+
+* 30/11 DCR Semantics
+Definition:
+- E is a finite set og labelled events
+- R is the edges of the graph. Edges are partitioned into five kinds, named: Conditions(->O), Responses (o->),
+ milestones (->#) Inclusions(->+) and exclusions (->%)
+- M is the marking of the graph. This is a triples of sets of events, responses pending and
+
+*Gennemgang af en DCR implementering* (Use this for your own implementation)
+
+/Def 2(Enabled events)/ let G = (E,R,M) be a DCR Graph, with marking M.
+We say that an event $e \in E$ is enabled and write
+$e \in enabled(G) iff (a)(e) \in In \cap (->Oe) \subseteq Ex$ and $(c) In \cap (->#e) \subseteq E\setminus Re$  
+/Note: Only included conditions and milestones can block other events/ 
+
+/Def 3(Execution)/ Suppose $e \in enabled(G)$. We may execute e obtaining
+the resulting DCR Graph (E,R,M') with $M' = (Ex', Re', In')$ defined as follows:
+1. Ex' = Ex U e
+   e is added to Executed set
+2. Re' = (Re \textbackslash e) U (EO->)
+   e is removed from the pending set
+3. In' = (In \ (e->%)) U (e->+)
+    Exclude those excluded by e. Include those included by e.
+
+/Def 4.4/ Transitions, runs, traces. If e is enabled and executing G yields H, we say
+that G has transition on e to H and write $G \longrightarrow_e H$ . a run of G is a finite or infinite
+sequence of graphs $G_i$ and events $e_i$ sutch that $G = G_0 \longrightarrow_{e0} \longrightarrow ...$  
+A trace of $G$ is a sequence of labels of events $e_i$ associated with a run of $G$. We 
+write =runs(G)= and =traces(G)= for the sets of runs and traces.
+
+/Def 4.5/ Acceptance. A run is accepting IFF for all n with $e \in In(G_n) \cap Re(G_n)$ there
+exists $m \geq n$ s.t. either $e_m = e$ or $e \notin In(G_m$. A trace is accepting iff it has
+an underlying run which is.
+/If an event at some point becomes pending, it must be executed or excluded/
+
+/Def 4.6/ Language. The language of a graph G is the set of its acceptings traces. We
+write =Lang(G)= for that set.
+
+*Demo af DCR Engine*
+
+** Process mining
+Using /event log/ A list or table containing events
+- Activities
+- Cases
+- An ordering(e.g. timestamp)
+- Optional metadata
+
+We then look at the event log as a set of traces.
+*NB: Log events are always unique*
+
+We then inspect most common executions
+
+Used for
+1. Conformance checking
+   Check if real processes conform to our models
+2. Process Discovery
+   Create models based on rw behaviour
+3. Process Enhancement
+   Improve models based on observed real-world behaviour
+   
+*** Criteria for discovered models:
+- Fitness
+  How well can the model replay the traces in the log
+- Precision
+  How much behaviour does the model allow that is not present in the log
+- Simplicity
+  How readable is the model
+- Generalization
+  To what extent does the model allow possible future behaviour of the process that
+  is not present in the current log
+
+
