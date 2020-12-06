@@ -67,3 +67,18 @@ Consists of:
 /Language:/ The set of all traces
 /Deadlock:/ A dead state. You're stuck in a non-accepting state
 /Livelock:/ You can still do actions, however we can still not reach an accepting state
+* 23/11 Process modelling
+We need to model processes. We show business standard modelling.
+
+** Declarative process notations
+- Are suited to modelling flexible processes
+- Focus on modelling constraints instead of flows
+- More easily adapted to change
+  
+*DCR Graphs*
+A workflow notation consisting of:
+- Events
+- Constraints
+- State represented as a marking consisting of executed, pending and included
+
+[[dcrgraphs.net]] 
