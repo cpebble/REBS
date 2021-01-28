@@ -138,6 +138,24 @@
             \includegraphics[width=0.8\linewidth]{images/InterfaceDiagram.png}
         \end{figure}
     \end{frame}
+    \begin{frame}[t]
+        \frametitle{Ports used}
+        \framesubtitle{3 static and 1 dynamic port used}
+        \begin{table}[!htb]
+            \centering
+            \begin{tabular}{l | r | r}
+                Port & Input   & Output \\\hline
+                8000 & Buyer   & Seller \\
+                8001 & Buyer   & Shipper\\
+                8002 & Shipper & Seller \\\hline
+                9000+& Seller  & Buyer
+            \end{tabular}
+            \caption{The port table. The input column is which service defines the port as an inputport, 
+            the output column describes who outputs to this port}
+            \label{tab:portmap}
+        \end{table}
+        
+    \end{frame}
     % Buyer
     \begin{frame}[t]
         \frametitle{Buyer}
