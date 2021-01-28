@@ -1,0 +1,108 @@
+% Usual packages++
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{url}
+\usepackage{hyperref}
+%\usepackage[usenames, dvipsnames, svgnames, table]{xcolor}
+\usepackage{colortbl}
+\usepackage{verbatim}
+\usepackage{fancyvrb}
+\usepackage{listings}
+\usepackage{lipsum}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{enumerate}
+\usepackage{booktabs}
+\usepackage[yyyymmdd]{datetime}
+% Cool graphs and plots
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+
+
+% Blackboard bold
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\EE}{\mathbb{E}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\CC}{\mathbb{C}}
+
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+
+\DeclareFixedFont{\ttb}{T1}{txtt}{bx}{n}{9} % for bold
+\DeclareFixedFont{\ttm}{T1}{txtt}{m}{n}{9}  % for normal
+% Colors:
+\definecolor{KU-red}{RGB}{144, 26, 30}
+\definecolor{lightblue}{rgb}{0.6,0.6,1.0}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+\definecolor{yellow}{rgb}{0.6,0.6,0}
+\definecolor{mattegreen}{rgb}{0.45,0.85,0.45}
+\definecolor{gray}{rgb}{0.95,0.95,0.95}
+\definecolor{mediumgray}{rgb}{0.60,0.65,0.63}
+\definecolor{darkgray}{rgb}{0.45,0.45,0.45}
+\definecolor{mattered}{rgb}{1.0, 0.13, 0.32}
+
+% Text Coloring:
+\newcommand{\dgreen} [1]{\textbf{\color{deepgreen}{#1}}}
+\newcommand{\green}  [1]{\textbf{\color{green}{#1}}}
+\newcommand{\yello}  [1]{\textbf{\color{yellow}{#1}}}
+\newcommand{\blue}   [1]{\textbf{\color{blue} {#1}}}
+\newcommand{\red}    [1]{\textbf{\color{red}  {#1}}}
+\newcommand{\grey}   [1]{\textbf{\color{gray} {#1}}}
+\newcommand{\dgrey}  [1]{\textbf{\color{darkgray} {#1}}}
+
+% Misc Commands
+\newcommand\code[1]{\texttt{\colorbox{blue!5}{#1}}}
+
+\newcommand\link[2]{\href{#2}{\blue{#1}}}
+
+% Source code
+\lstdefinelanguage{Futhark}{
+    keywords={let, if, then, else, in, loop, for, do, entry, type},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywords={iota, map, map2, map3, zip, zip2, reduce, scan, scatter,
+  replicate, copy },
+  ndkeywordstyle=\color{green}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{--},
+%morecomment=[s]{/*}{*/},
+  commentstyle=\color{darkgray}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]"
+}
+
+\lstset{%
+language=Futhark,
+keywordstyle=\color{deepblue},
+basicstyle=\tiny,
+emphstyle=\color{deepred},
+commentstyle=\color{mediumgray},
+stringstyle=\color{deepgreen},
+% Any extra options here
+% frame=tb,
+showstringspaces=false,
+tabsize=2,
+numbers=left,
+frame=l,
+framesep=6mm,
+framexleftmargin=2.5mm,
+fillcolor=\color{gray},
+rulecolor=\color{lightblue},
+numberstyle=\ttfamily\tiny\color{darkgray}
+}
+
+
